@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 
 gem 'rails', '4.2.3'
+gem 'mysql2'
 gem 'protected_attributes'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'haml-rails', '~> 0.9'
