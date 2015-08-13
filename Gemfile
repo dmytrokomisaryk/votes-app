@@ -4,7 +4,7 @@ ruby '2.1.5'
 gem 'rails_12factor'
 gem 'rails', '4.2.3'
 
-gem 'mysql2'
+gem 'pg'
 gem 'protected_attributes'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.5'
