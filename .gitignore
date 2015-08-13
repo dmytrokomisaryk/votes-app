@@ -1,5 +1,4 @@
 .idea/*
-Gemfile.lock
 /log/*
 !/log/.keep
 /tmp
