@@ -30,8 +30,12 @@ module AuthorizeHelper
     if signed_in?
       redirect_to polls_path if root_page?
     else
-      redirect_to root_path unless root_page?
+      deny_access
     end
+  end
+
+  def check_user_logged_in
+    redirect_to polls_path if signed_in?
   end
 
   private

@@ -1,4 +1,5 @@
 class PollsController < ApplicationController
+  before_filter :authorize
 
   def index
     @polls = polls_list
