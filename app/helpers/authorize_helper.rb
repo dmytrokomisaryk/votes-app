@@ -29,6 +29,8 @@ module AuthorizeHelper
   def authorize
     if signed_in?
       redirect_to polls_path if root_page?
+    else
+      redirect_to root_path unless root_page?
     end
   end
 
