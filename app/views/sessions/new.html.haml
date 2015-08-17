@@ -1,10 +1,13 @@
-%h1 Sign In
+.text-center
+  %legend.float-none.col-xs-12.col-sm-7.col-md-5.col-lg-5
+    %h1 Sign In
 
 - if flash[:error]
-  %p
+  %p.alert.alert-danger.float-none.col-xs-12.col-sm-7.col-md-5.col-lg-5{ role: :alert }
     = flash[:error]
-
-= simple_form_for(:session, url: sessions_path) do |f|
-  = f.input :email
-  = f.input :password
-  = f.button :submit, value: 'Sign In', class: 'btn btn-primary'
+.login.float-none.col-xs-12.col-sm-7.col-md-5.col-lg-5
+  = simple_form_for(:session, url: sessions_path) do |f|
+    = f.input :email
+    = f.input :password
+    .text-center
+      = f.button :submit, value: 'Sign In', class: 'btn btn-primary'

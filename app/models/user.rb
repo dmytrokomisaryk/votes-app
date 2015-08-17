@@ -1,11 +1,15 @@
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :name, :email, :password, :password_confirmation
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
+
+  has_many :polls
 
   email_regex = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
 
-  validates :name, presence: true,
-      length: { maximum: 20 }
+  validates :first_name, presence: true,
+      length: { maximum: 30 }
+  validates :last_name, presence: true,
+            length: { maximum: 30 }
   validates :email, presence: true,
             format: { with: email_regex },
             uniqueness: { case_sensitive: false }

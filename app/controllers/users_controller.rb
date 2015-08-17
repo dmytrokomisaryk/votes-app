@@ -7,14 +7,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to action: :show, id: @user.id
+      redirect_to url_for(controller: :polls, action: :show)
     else
       render action: 'new'
     end
-  end
-
-  def show
-    @user = User.find(params[:id])
   end
 
 end

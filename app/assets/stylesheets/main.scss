@@ -1,0 +1,50 @@
+html, body {
+  height: 100%;
+}
+
+.welcome {
+  .btn-primary,
+  .btn-default {
+    margin: 10px;
+    width: 150px;
+  }
+
+}
+
+a {
+  .logo {
+    width: 230px;
+    height: 219px;
+    margin: 10vh auto auto auto;
+    background-image: url('logo.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 80%;
+  }
+}
+
+p.alert.alert-danger {
+  margin: auto;
+}
+
+legend {
+  margin: auto;
+}
+
+.login,
+.sign-up {
+  margin: 20px auto;
+  input[type="submit"] {
+    margin-top: 20px;
+    width: 150px;
+  }
+}
+
+.logout {
+  margin: 10px auto 20px auto;
+  text-align: right;
+  float: none!important;
+}
+
+.float-none {
+  float: none!important;
+}

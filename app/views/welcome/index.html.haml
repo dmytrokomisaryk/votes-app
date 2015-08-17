@@ -1,7 +1,9 @@
-.text-center
-  %h1
-    Welcome to test project
+.welcome
+  .text-center
+    %legend.float-none.col-xs-12.col-sm-7.col-md-5.col-lg-5
+      %h1
+        Welcome to test project
 
-.text-center
-  = link_to 'Sign In', sign_in_path, class: 'btn btn-primary'
-  = link_to 'Sign Up', sign_up_path, class: 'btn  btn-default'
+  .text-center
+    = link_to 'Sign In', sign_in_path, class: 'btn btn-primary'
+    = link_to 'Sign Up', sign_up_path, class: 'btn btn-default'

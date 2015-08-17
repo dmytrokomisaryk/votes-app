@@ -7,4 +7,10 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions
+  resources :polls do
+    collection do
+      post :add_option
+      post :vote
+    end
+  end
 end

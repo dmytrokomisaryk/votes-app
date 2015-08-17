@@ -1,0 +1,21 @@
+.text-center
+  %h1
+    - if @poll.new_record?
+      Create Poll
+    - else
+      Edit Poll
+#new_poll
+  = simple_form_for(@poll) do |f|
+
+    = f.input :user_id, as: :hidden
+    = f.input :title, label: 'Poll title'
+    %label
+      Options
+    #options
+      = f.fields_for :options do |q|
+        %span.glyphicon.glyphicon-trash{ onclick: '$(this).next().remove();this.remove();' }
+        = q.input :title, label: false, as: :string
+    = link_to '+ add option', 'javascript:void(0)', onclick: 'Option.add()'
+    .form-group.text-center.submit-group
+      = f.button :submit, value: 'Save', class: 'btn btn-primary', onclick: '$(this).prop("disabled", true);$(".simple_form").first().submit();'
+      = link_to 'Cancel', polls_path

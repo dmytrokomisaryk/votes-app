@@ -1,0 +1,147 @@
+.polls {
+  legend {
+    float: none!important;
+    margin: auto;
+  }
+}
+
+.add-new-poll {
+  float: none!important;
+  margin: auto;
+  padding: 20px 20px 40px 20px;
+  .input-group {
+    float: left!important;
+    padding-left: 6px!important;
+    span.input-group-addon {
+      cursor: pointer;
+    }
+  }
+  a {
+    float: right;
+    min-width: 120px;
+  }
+}
+
+.polls-list {
+  float: none!important;
+  margin: 20px auto;
+  blockquote {
+    padding: 0!important;
+    margin: 10px 0;
+    .header {
+      width: 100%;
+      background-color: #EEEEEE;
+      padding: 0 20px;
+      font-style: italic;
+      a.poll-link,
+      .glyphicon-link {
+        font-size: 12px;
+      }
+      .glyphicon-pencil {
+        color: orange;
+      }
+      .glyphicon-trash {
+        color: darkred;
+      }
+    }
+  }
+
+  .votes-progress {
+    padding: 20px 0px 0px 20px;
+    border: 1px solid #EEEEEE;
+  }
+
+  .progress {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0!important;
+  }
+  .progress,
+  .votes {
+    display: inline-block;
+    vertical-align: top;
+    float: none;
+  }
+
+  .progress-bar {
+    height: 20px;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: black;
+  }
+
+  .votes {
+    text-align: right;
+    padding: 0!important;
+  }
+}
+
+#new_poll {
+  max-width: 500px;
+  margin: auto;
+  form {
+    margin-top: 40px;
+    textarea {
+      max-width: 100%;
+      min-width: 100%;
+      max-height: 300px;
+    }
+    .glyphicon-trash {
+      width: 20px;
+      cursor: pointer;
+    }
+    .glyphicon-trash:hover {
+      color: red;
+    }
+
+    .poll_options_title,
+    .glyphicon-trash {
+      display: inline-block;
+    }
+    .poll_options_title {
+      width: 95%;
+    }
+  }
+  .submit-group {
+    margin-top: 35px;
+
+    input[type="submit"] {
+      width: 100px;
+      margin-right: 15px;
+    }
+  }
+}
+
+#vote {
+  legend {
+    float: none!important;
+    margin: auto auto 30px auto;
+  }
+  #options {
+    float: none!important;
+    margin: auto;
+    label {
+      width: 100%;
+      border: 1px solid rgb(238, 238, 238);
+
+      blockquote {
+        margin-bottom: 0;
+        span {
+          float: none!important;
+          display: table-cell;
+          vertical-align: middle;
+          position: relative;
+          z-index: -1;
+        }
+      }
+    }
+    label:hover {
+      blockquote {
+        cursor: pointer;
+        background-color: rgba(0,0,0,0.1);
+      }
+    }
+  }
+}

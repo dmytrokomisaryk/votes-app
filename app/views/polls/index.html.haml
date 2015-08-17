@@ -1,0 +1,43 @@
+:javascript
+  $(document).ready(function () {
+    $('#search').focus().val("#{params[:search]}")
+  })
+.text-center.polls
+  %legend.col-xs-12.col-sm-10.col-md-9.col-lg-9
+    %h2
+      = 'Your polls: '
+.add-new-poll.col-xs-12.col-sm-10.col-md-9.col-lg-9
+  = form_tag(polls_path, id: :search_form, method: :get) do
+    .input-group.col-xs-6.col-sm-6.col-md-5.col-lg-5.list-inline
+      = text_field_tag :search, params[:search],
+        class: 'form-control',  type: :text, placeholder: 'Search by title',
+        'aria-describedby'=>'basic-addon2'
+      %span.input-group-addon{ id: 'basic-addon2', onclick: '$("#search_form").submit(); this.focus()' }
+        %span.glyphicon.glyphicon-search
+  = link_to 'Add new', new_poll_path, class: 'btn btn-success col-xs-5 col-sm-5 col-md-2 col-lg-2'
+.polls-list.col-xs-12.col-sm-10.col-md-9.col-lg-9
+  - if @polls.empty?
+    .text-center
+      No polls yet. Click 'Add new' button for create new.
+  .text-right
+    = will_paginate @polls
+  - @polls.each_with_index do |poll|
+    %blockquote{ id: "poll-#{poll.id}" }
+      .header
+        = poll.title
+        %br
+        %br
+        %span.pull-right
+          %span.glyphicon.glyphicon-link
+          = link_to encoded_url(poll), encoded_url(poll), class: 'poll-link'
+        = link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_poll_path(poll)
+        = link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, poll_path(poll), method: :delete, remote: true, data: { confirm: 'Are you sure?' }
+      .votes-progress
+        - poll.options.each do |option|
+          .progress.col-xs-10.col-sm-10.col-md-10.col-lg-10{ title: option.title }
+            .progress-bar{ role: :progressbar, style: "width: #{votes_in_percents(poll, option.votes)}%;"}
+              = option.title
+          .votes.col-xs-1.col-sm-1.col-md-1.col-lg-1
+            = option.votes
+  .text-right
+    = will_paginate @polls

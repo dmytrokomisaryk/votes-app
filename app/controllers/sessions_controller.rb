@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
       flash.now[:error] = 'Invalid email/password combination.'
       render :new
     else
-      sign_in user
-      redirect_to user
+      sign_in(user)
+      redirect_to polls_path
     end
   end
 
@@ -19,4 +19,5 @@ class SessionsController < ApplicationController
     sign_out
     redirect_to sign_in_path
   end
+
 end

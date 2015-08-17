@@ -1,0 +1,19 @@
+#vote
+  .text-center
+    %legend.col-xs-12.col-sm-7.col-md-7.col-lg-7
+      %h2
+        = 'Poll: '
+      %em
+        = @poll.title
+  = form_tag('vote', method: :post) do
+    #options.col-xs-12.col-sm-7.col-md-7.col-lg-7
+      - @poll.options.each do |option|
+        %label
+          %blockquote
+            %span.col-xs-1.col-sm-1.col-md-1.col-lg-1
+              = radio_button_tag :option, option.id
+            %span.col-xs-11.col-sm-11.col-md-11.col-lg-11
+              = option.title
+        %br
+    .form-group.text-center.submit-group
+      = submit_tag 'Vote', class: 'btn btn-primary'
