@@ -9,7 +9,7 @@
       %br
       %br
     .votes-progress
-      - @poll.options.each do |option|
+      - @poll.options.order_votes.each do |option|
         .progress.col-xs-10.col-sm-10.col-md-10.col-lg-10{ title: option.title }
           .progress-bar{ role: :progressbar, style: "width: #{votes_in_percents(@poll, option.votes)}%;"}
             = option.title

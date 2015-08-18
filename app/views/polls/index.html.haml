@@ -35,7 +35,7 @@
         = link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_poll_path(poll)
         = link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, poll_path(poll), method: :delete, remote: true, data: { confirm: 'Are you sure?' }
       .votes-progress
-        - poll.options.each do |option|
+        - poll.options.order_votes.each do |option|
           .progress.col-xs-10.col-sm-10.col-md-10.col-lg-10{ title: option.title }
             .progress-bar{ role: :progressbar, style: "width: #{votes_in_percents(poll, option.votes)}%;"}
               &nbsp;&nbsp;
