@@ -32,7 +32,7 @@ class PollsController < ApplicationController
     @poll.update_attributes(survey_params)
     if @poll.save
       @polls = polls_list
-      render :index
+      redirect_to polls_path
     else
       render action: :edit, id: @poll.id
     end
