@@ -63,7 +63,7 @@ class PollsController < ApplicationController
       mark_as_voted(@poll)
     end
 
-    render :result
+    redirect_to result_poll_path(@poll)
   end
 
   def result
