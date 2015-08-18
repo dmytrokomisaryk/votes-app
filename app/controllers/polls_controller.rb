@@ -1,5 +1,6 @@
 class PollsController < ApplicationController
   before_filter :authorize
+  include PollsHelper
 
   def index
     @polls = polls_list
@@ -40,6 +41,8 @@ class PollsController < ApplicationController
   def show
     id = Base64.urlsafe_decode64(params[:id].split('/').last).split('/').last
     @poll = Poll.find(id)
+
+    redirect_to result_poll_path(@poll) if already_voted?(@poll)
   end
 
   def destroy
@@ -53,9 +56,16 @@ class PollsController < ApplicationController
 
   def vote
     option = Option.find(params[:option])
-    option.votes += 1
-    option.save
+    option.voting
+
     @poll = option.poll
+    mark_as_voted(@poll)
+
+    render :result
+  end
+
+  def result
+    @poll = Poll.find(params[:id])
   end
 
   private
@@ -65,7 +75,7 @@ class PollsController < ApplicationController
   end
 
   def polls_list
-    current_user.polls.search(params[:search]).page(params[:page]).limit(5).order('created_at DESC')
+    current_user.polls.order_created_at.search(params[:search]).page(params[:page]).limit(5)
   end
 
 end

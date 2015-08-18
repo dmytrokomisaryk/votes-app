@@ -1,4 +1,4 @@
-# Test project
+# Votes project
 
 ## Ruby 2.1.5
 ## Postgres Database

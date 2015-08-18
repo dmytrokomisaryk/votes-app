@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :polls do
+    member do
+      get :result
+    end
     collection do
       post :add_option
       post :vote

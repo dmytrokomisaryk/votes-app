@@ -5,4 +5,9 @@ class Option < ActiveRecord::Base
   validates :title, presence: true,
             length: { minimum: 3 }
 
+  def voting
+    self.votes += 1
+    save
+  end
+
 end

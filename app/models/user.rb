@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
     user = find_by_email(email)
 
     return if user.nil? || !user.has_password?(submitted_password)
+
     user
   end
 
@@ -34,7 +35,6 @@ class User < ActiveRecord::Base
 
   def encrypt_password
     self.salt = Digest::SHA2.hexdigest("#{Time.now.utc}--#{password}") if self.new_record?
-
     self.encrypted_password = encrypt(password)
   end
 

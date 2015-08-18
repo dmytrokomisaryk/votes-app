@@ -41,7 +41,6 @@ module AuthorizeHelper
   private
 
   def root_page?
-    puts request.path
     ['/','/sign_in'].include?(request.path)
   end
 
