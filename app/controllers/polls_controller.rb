@@ -57,7 +57,7 @@ class PollsController < ApplicationController
   def vote
     option = Option.find(params[:option])
     @poll = option.poll
-    
+
     unless already_voted?(@poll)
       Option.transaction do
         option.voting
