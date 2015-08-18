@@ -57,10 +57,12 @@ class PollsController < ApplicationController
   def vote
     option = Option.find(params[:option])
     @poll = option.poll
-
-    Option.transaction do
-      option.voting
-      mark_as_voted(@poll)
+    
+    unless already_voted?(@poll)
+      Option.transaction do
+        option.voting
+        mark_as_voted(@poll)
+      end
     end
 
     redirect_to result_poll_path(@poll)
