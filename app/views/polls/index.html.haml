@@ -38,6 +38,7 @@
         - poll.options.each do |option|
           .progress.col-xs-10.col-sm-10.col-md-10.col-lg-10{ title: option.title }
             .progress-bar{ role: :progressbar, style: "width: #{votes_in_percents(poll, option.votes)}%;"}
+              &nbsp;&nbsp;
               = option.title
           .votes.col-xs-1.col-sm-1.col-md-1.col-lg-1
             = option.votes
