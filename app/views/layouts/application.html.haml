@@ -11,6 +11,8 @@
     .container.container-fluid
       - if signed_in?
         .logout.col-xs-12.col-sm-10.col-md-9.col-lg-9
+          .email
+            = current_user.email
           = link_to 'Log out', sign_out_path, class: 'btn btn-danger'
       = yield
 

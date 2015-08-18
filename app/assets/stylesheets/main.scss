@@ -42,6 +42,9 @@ legend {
   margin: 10px auto 20px auto;
   text-align: right;
   float: none!important;
+  .email, a {
+    display: inline-block;
+  }
 }
 
 .float-none {
