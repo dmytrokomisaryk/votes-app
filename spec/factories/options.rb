@@ -1,6 +1,7 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :option do
+    title "test option"
+    votes 0
+    poll nil
   end
 end

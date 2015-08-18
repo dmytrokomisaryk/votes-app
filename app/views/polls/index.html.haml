@@ -16,9 +16,11 @@
         %span.glyphicon.glyphicon-search
   = link_to 'Add new', new_poll_path, class: 'btn btn-success col-xs-5 col-sm-5 col-md-2 col-lg-2'
 .polls-list.col-xs-12.col-sm-10.col-md-9.col-lg-9
-  - if @polls.empty?
-    .text-center
+  .text-center
+    - if @polls.empty? && params[:search].blank?
       No polls yet. Click 'Add new' button for create new.
+    - elsif params[:search].present?
+      No data found
   .text-right
     = will_paginate @polls
   - @polls.each_with_index do |poll|

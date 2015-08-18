@@ -1,5 +1,5 @@
 class PollsController < ApplicationController
-  before_filter :authorize
+  before_filter :authorize, except: [:show, :result, :vote]
   include PollsHelper
 
   def index
@@ -56,10 +56,12 @@ class PollsController < ApplicationController
 
   def vote
     option = Option.find(params[:option])
-    option.voting
-
     @poll = option.poll
-    mark_as_voted(@poll)
+
+    Option.transaction do
+      option.voting
+      mark_as_voted(@poll)
+    end
 
     render :result
   end
